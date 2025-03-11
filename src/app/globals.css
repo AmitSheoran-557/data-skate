@@ -1,26 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  font-family: "Syne", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.font-inter {
+  font-family: "Inter", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.border-red {
+  border: 1px dashed #ED1C24;
+}
+
+.border-red-2 {
+  border: 1px solid #ED1C24;
+}
+
+.bg-red {
+  background-color: #ED1C24;
+}
+
+.bg-light-black {
+  background-color: #1B1B1B;
+}
+
+.text-red {
+  color: #ED1C24;
+}
+
+.bg-light-red {
+  background-color: #FFF1F2;
+}
+.bg-light-white{
+  background-color: #F6F6F6;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-progress {
+  animation: progress 3s ease-in-out forwards;
 }
