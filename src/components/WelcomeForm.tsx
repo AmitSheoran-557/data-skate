@@ -9,7 +9,7 @@ type FormData = {
     email: string;
 };
 
-const Login: React.FC = () => {
+const WelcomeForm: React.FC = () => {
     const router = useRouter();
     const initialFormData = { 
         firstName: "",
@@ -81,4 +81,4 @@ const Login: React.FC = () => {
     );
 };
 
-export default Login;
+export default WelcomeForm;

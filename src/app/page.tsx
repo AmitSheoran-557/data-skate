@@ -1,7 +1,6 @@
-import FormDashboard from "../components/FormDashboard"
+import WelcomeForm from "@/components/WelcomeForm";
 export default function Home() {
   return (
-   
-   <FormDashboard/>
+    <WelcomeForm />
   );
 }

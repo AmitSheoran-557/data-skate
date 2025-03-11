@@ -1,10 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from 'next/image';
-import { ACCORDION_DATA_LIST, MACHINES_DATA_LIST } from "@/utils/helper";
+import { ACTIVE_DATA_LIST, MACHINES_DATA_LIST } from "@/utils/helper";
 import { useRouter } from "next/navigation";
 
 const Detailed: React.FC = () => {
+
     const router = useRouter();
     const [imageUrl, setImageUrl] = useState<string | null>(null);
 
@@ -13,7 +14,16 @@ const Detailed: React.FC = () => {
         if (storedImageUrl) {
             setImageUrl(storedImageUrl);
         }
-    }, []); 
+    }, []);
+
+
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const handleClick = (index: number, content: string, title: string) => {
+    setActiveIndex(index);
+    const urlContent = `${content.toLowerCase().replace(/\s+/g, '-')}-${title.toLowerCase()}`;
+    router.push(`/file-details/?title=${urlContent}`);
+  };
+
 
     return (
         <div className="flex justify-center items-center bg-light-white">
@@ -26,7 +36,7 @@ const Detailed: React.FC = () => {
                             <p>No image selected.</p>
                         )}
                     </div>
-                    <button  onClick={() => router.push("/file-upload")} className="font-medium lg:text-sm lg:mt-0 md:mt-4 mt-3 text-xs !leading-[100%] cursor-pointer hover:bg-red-500 hover:border-transparent hover:text-white transition-all ease-linear duration-300 uppercase xl:py-[17px] lg:py-3.5 py-3 xl:px-[22.5px] lg:px-5 px-4 border-black/50 border-1 rounded-md whitespace-nowrap">Upload more files</button>
+                    <button onClick={() => router.push("/file-upload")} className="font-medium lg:text-sm lg:mt-0 md:mt-4 mt-3 text-xs !leading-[100%] cursor-pointer hover:bg-red-500 hover:border-transparent hover:text-white transition-all ease-linear duration-300 uppercase xl:py-[17px] lg:py-3.5 py-3 xl:px-[22.5px] lg:px-5 px-4 border-black/50 border-1 rounded-md whitespace-nowrap">Upload more files</button>
                 </div>
                 <div className="flex flex-wrap justify-center items-center w-full xl:gap-6 lg:gap-5 gap-4 xl:mb-[31px] lg:mb-7 md:mb-6 mb-5">
                     <div className="bg-white rounded-lg max-w-[558px] px-4 xl:py-[19px] lg:py-4 py-3 w-full flex items-center justify-between">
@@ -55,11 +65,16 @@ const Detailed: React.FC = () => {
                 <div className="flex flex-wrap justify-center gap-6 w-full xl:mb-[46px] lg:mb-10 md:mb-9 mb-7">
 
                     <div className="max-w-[558px] w-full justify-start gap-4 flex flex-col">
-                        {ACCORDION_DATA_LIST.map((item, index) => (
-                            <div key={index} className=" w-full">
-                                <div className="flex items-center rounded-lg bg-white px-4 py-3 cursor-pointer" >
-                                    <div className="text-lg lg:max-w-10 max-w-8 lg:min-h-10 min-h-8  mr-4 flex justify-center items-center w-full rounded-full bg-light-red font-semibold">{item.title}</div>
-                                    <p className="font-inter lg:text-sm text-xs !leading-[100%]">{item.content}</p>
+                        {ACTIVE_DATA_LIST.map((item, index) => (
+                            <div key={index} className="w-full">
+                                <div onClick={() => handleClick(index, item.content, item.title)} className={`flex items-center rounded-lg px-4 py-3 border-2 border-transparent cursor-pointer bg-white transition-all ease-linear duration-300 ${activeIndex === index ? 'border-2 !border-red-500' : ''}`}>
+                                    <div className="flex w-full items-center">
+                                        <div className="text-lg lg:max-w-10 max-w-8 lg:min-h-10 min-h-8 mr-4 flex justify-center items-center w-full rounded-full bg-light-red font-semibold">
+                                            {item.title}
+                                        </div>
+                                        <p className="font-inter lg:text-sm text-xs !leading-[100%]">{item.content}</p>
+                                    </div>
+                                    <Image className="xl:max-w-6 lg:max-w-5 max-w-4 w-full" src="/assets/images/png/right-chevron-img.png" alt="right-arrow" width={24} height={24} />
                                 </div>
                             </div>
                         ))}

@@ -34,7 +34,7 @@ const ProcessFiles: React.FC = () => {
             setIsUploading(true);
             setTimeout(() => {
                 setIsUploading(false);
-                router.push("/detailed");
+                router.push("/file-details");
             }, 3000);
         }
     };
@@ -68,11 +68,11 @@ const ProcessFiles: React.FC = () => {
                                 </div>
                                 ) : (
                                     <button onClick={handleUpload} className="mt-3 p-2 bg-red text-white rounded-lg"> Upload Image</button>
-                                )}
-                            </div>
-                        )}
-                    </div>
-                </div>
+                                )}  
+                            </div>  
+                        )}  
+                    </div>  
+                </div>  
 
                 <div className="flex flex-wrap md:justify-between max-md:justify-center items-center lg:max-w-[786px] md:max-w-2xl max-w-xl w-full mx-auto">
                     <p className="md:max-w-[355px] max-sm:max-w-2xl max-md:text-center lg:text-sm text-xs !leading-[150%] text-black font-inter">

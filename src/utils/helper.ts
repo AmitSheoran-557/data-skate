@@ -22,7 +22,7 @@ export const MACHINES_DATA_LIST = [
     },  
 ];  
 
-export const ACCORDION_DATA_LIST = [  
+export const ACTIVE_DATA_LIST = [  
     { title: '11', content: 'No of starter processes' },
     { title: '2', content: 'No of Connections' },
     { title: '11', content: 'No of process' },
