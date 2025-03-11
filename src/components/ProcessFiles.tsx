@@ -12,7 +12,7 @@ const ProcessFiles: React.FC = () => {
     const [image, setImage] = useState<ImageFile | null>(null);
     const [isUploading, setIsUploading] = useState(false);
     const router = useRouter();
-
+ 
     const handleFiles = (e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
         const files = (e.target as HTMLInputElement).files || (e as React.DragEvent<HTMLDivElement>).dataTransfer?.files;
@@ -57,7 +57,7 @@ const ProcessFiles: React.FC = () => {
                         <input type="file" onChange={handleFiles} id="image" hidden />
                         <div className="flex-wrap flex gap-5 items-center justify-center mx-auto">
                             {image && (
-                                <Image className="xl:max-w-14 max-w-12 mx-auto w-full lg:pt-5 pt-4" src={image.url} alt="selected-img" width={80} height={80} />
+                                <Image className="xl:max-w-28 max-w-24 mx-auto w-full lg:pt-5 pt-4" src={image.url} alt="selected-img" width={80} height={80} />
                             )}
                         </div>
                         

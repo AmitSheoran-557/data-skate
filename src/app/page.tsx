@@ -1,9 +1,7 @@
-import ProcessFiles from "@/components/ProcessFiles";
-
+import FormDashboard from "../components/FormDashboard"
 export default function Home() {
   return (
-    <>
-      <ProcessFiles />
-    </>
+   
+   <FormDashboard/>
   );
 }

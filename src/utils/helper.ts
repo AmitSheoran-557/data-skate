@@ -23,10 +23,10 @@ export const MACHINES_DATA_LIST = [
 ];  
 
 export const ACCORDION_DATA_LIST = [  
-    { title: 'No of starter processes', content: '11' },  
-    { title: 'No of Connections', content: '2' },  
-    { title: 'No of processes', content: '11' },  
-    { title: 'No of Activities', content: '27' },  
-    { title: 'No of Variables', content: '5' },  
-    { title: 'No of Functions', content: '2' },  
+    { title: '11', content: 'No of starter processes' },
+    { title: '2', content: 'No of Connections' },
+    { title: '11', content: 'No of process' },
+    { title: '27', content: 'No of Activities' },
+    { title: '5', content: 'No of Variables' },
+    { title: '2', content: 'No of Functions' },
 ];  
