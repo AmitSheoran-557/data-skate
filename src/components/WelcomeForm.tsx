@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Swal from 'sweetalert2'
 
 type FormData = {
     firstName: string;
@@ -11,7 +12,7 @@ type FormData = {
 
 const WelcomeForm: React.FC = () => {
     const router = useRouter();
-    const initialFormData = { 
+    const initialFormData = {
         firstName: "",
         secondName: "",
         email: "",
@@ -28,6 +29,13 @@ const WelcomeForm: React.FC = () => {
         localStorage.setItem("formData", JSON.stringify(data));
         localStorage.setItem("isLogin", "true");
         router.push("/file-upload");
+
+        Swal.fire({
+            title: "Good job!",
+            text: "You Form is SuccessFully submitted",
+            icon: "success",
+            confirmButtonText: 'Done'
+        });
     };
 
     useEffect(() => {
@@ -75,7 +83,7 @@ const WelcomeForm: React.FC = () => {
                         </p>
                     )}
                 </div>
-                <button type="submit" className="w-full bg-blue-500 text-white font-bold lg:mt-2 mt-1 py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-blue-700"> Submit </button>
+                <button type="submit" className="w-full bg-blue-500 cursor-pointer text-white font-bold lg:mt-2 mt-1 py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-blue-700"> Submit </button>
             </form>
         </div>
     );

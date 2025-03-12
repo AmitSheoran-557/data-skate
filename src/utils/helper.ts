@@ -18,7 +18,7 @@ export const MACHINES_DATA_LIST = [
     {  
         logo: '/assets/images/png/pars-logo.png',  
         count: "-",   
-        description: 'No of Machines',  
+        description: 'No of Pars',  
     },  
 ];  
 
