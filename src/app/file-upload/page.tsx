@@ -1,4 +1,5 @@
 "use client";
+import Header from '@/components/common/Header';
 import ProcessFiles from '@/components/ProcessFiles'
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
@@ -10,9 +11,12 @@ const page = () => {
             router.push("/");
         }
     }, []);
-    
+
     return (
-        <ProcessFiles />
+        <>
+            <Header />
+            <ProcessFiles />
+        </>
     )
 }
 
